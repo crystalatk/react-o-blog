@@ -11,7 +11,9 @@ class BlogModel {
   }
 
   static async getAll() {
-    const response = await db.any(`SELECT * FROM react_o_blog`);
+    const response = await db.any(
+      `SELECT id, title, to_char(date, 'Mon DD, YYYY') as date, body FROM react_o_blog`
+    );
     return response;
   }
 }
