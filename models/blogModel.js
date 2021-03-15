@@ -16,6 +16,14 @@ class BlogModel {
     );
     return response;
   }
+
+  static async addNewPost(title, body) {
+    const response = await db.result(
+      `INSERT INTO react_o_blog (title, body) VALUES ($1, $2)`,
+      [title, body]
+    );
+    return response;
+  }
 }
 
 module.exports = BlogModel;
